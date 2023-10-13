@@ -1,0 +1,6 @@
+Medição[[:space:]]Agrupada.xlsx filter=lfs diff=lfs merge=lfs -text
+Medição_Agrupada.csv filter=lfs diff=lfs merge=lfs -text
+Medição[[:space:]]Agrupada.csv filter=lfs diff=lfs merge=lfs -text
+C:/Users/Engeselt/Documents/GitHub/ASPO/Medição[[:space:]]Agrupada.csv filter=lfs diff=lfs merge=lfs -text
+C:/Users/Engeselt/Documents/GitHub/ASPO/Medição[[:space:]]Agrupada.csv filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
