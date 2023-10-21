@@ -223,7 +223,7 @@ colu1,colu2 = st.columns(2)
 with colu1:
     mes_selecionado =st.selectbox('Selecione o mês:',[1,2,3,4,5,6,7,8,9,10,11,12])
 with colu2:
-    ano_selecionado = st.selectbox('Selecione o ano:',[2022])
+    ano_selecionado = st.selectbox('Selecione o ano:',[2023])
 
 fig2 = go.Figure()
 base['DATA_HORA_converted'] = pd.to_datetime(base.index, errors='coerce')
