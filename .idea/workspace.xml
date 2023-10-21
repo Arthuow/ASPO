@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 12/10/2023">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DEMANDA.py" beforeDir="false" afterPath="$PROJECT_DIR$/DEMANDA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Medição Agrupada.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Medição Agrupada.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Medição Agrupada_diária.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Medição Agrupada_diária.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tabela informativa.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela informativa.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Taxa de Crescimento.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Taxa de Crescimento.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Valores_maximos_P_meses.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Valores_maximos_P_meses.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/3_DIAGNÓSTICO.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/3_DIAGNÓSTICO.py" afterDir="false" />
-    </list>
+    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 12/10/2023" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +39,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Engeselt/Documents/GitHub/ASPO&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.DEMANDA">
     <configuration name="DEMANDA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ASPO" />
       <option name="INTERPRETER_OPTIONS" value="" />
