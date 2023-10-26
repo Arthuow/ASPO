@@ -18,7 +18,7 @@ df_dados_com_meses_anos = df_dados_com_meses_anos.loc[df_dados_com_meses_anos["T
 df_dados_com_meses_anos['Cód. do Trafo/Alimentador']=df_dados_com_meses_anos['Cód. do Trafo/Alimentador'].astype(str)
 print(df_dados_com_meses_anos)
 df_dados_com_meses_anos.set_index('Cód. do Trafo/Alimentador',inplace=True)
-df_ordenado = df_dados_com_meses_anos.sort_values(by='Carregamento', ascending=False).head(60)
+df_ordenado = df_dados_com_meses_anos.sort_values(by='Carregamento', ascending=False).head(40)
 df_ordenado['Carregamento'] =df_ordenado['Carregamento'].round(2)
 print(df_ordenado)
 df_ordenado.info()
@@ -43,7 +43,7 @@ df_dados_com_meses_anos = df_maxima
 df_dados_com_meses_anos = df_dados_com_meses_anos.loc[df_dados_com_meses_anos["Tipo"]=='Alimentador']
 df_dados_com_meses_anos['Cód. do Trafo/Alimentador']=df_dados_com_meses_anos['Cód. do Trafo/Alimentador'].astype(str)
 print(df_dados_com_meses_anos)
-df_ordenado = df_dados_com_meses_anos.sort_values(by='Carregamento', ascending=False).head(50)
+df_ordenado = df_dados_com_meses_anos.sort_values(by='Carregamento', ascending=False).head(40)
 df_ordenado['Carregamento'] =df_ordenado['Carregamento'].round(2)
 print(df_ordenado)
 df_ordenado.info()
