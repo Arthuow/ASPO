@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 21/10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medição Agrupada.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Medição Agrupada.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medição Agrupada_diária.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Medição Agrupada_diária.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taxa de Crescimento.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Taxa de Crescimento.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Valores_maximos_P_meses.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Valores_maximos_P_meses.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +26,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="nome_da_branch" />
+        <entry key="$PROJECT_DIR$" value="Energisa_2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Arthuow&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="50596007-957e-4d6f-9d0d-e78056d8eeb5" />
+        <option name="url" value="https://github.com/Arthuow/ASPO.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Energisa&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Engeselt/Documents/GitHub/ASPO&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Engeselt/Documents/GitHub/ASPO"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Engeselt\Documents\GitHub\ASPO" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.DEMANDA">
+  <component name="RunManager">
     <configuration name="DEMANDA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ASPO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -99,6 +117,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.FICHA DE PROJETO" />
+        <item itemvalue="Python.DEMANDA" />
         <item itemvalue="Python.FICHA DE PROJETO" />
         <item itemvalue="Python.DEMANDA" />
       </list>
@@ -209,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698363355648</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Medição Agrupada Atualizada 21/10">
+      <option name="closed" value="true" />
+      <created>1698364111150</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1698364111150</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
