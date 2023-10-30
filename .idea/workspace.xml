@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 21/10">
+    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 27/10">
+      <change afterPath="$PROJECT_DIR$/pages/Valores_maximos_P_meses.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Medição Agrupada.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Medição Agrupada.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Medição Agrupada_diária.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Medição Agrupada_diária.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tabela informativa.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela informativa.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Taxa de Crescimento.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Taxa de Crescimento.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valores_maximos_P_meses.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Valores_maximos_P_meses.xlsx" afterDir="false" />
     </list>
@@ -63,11 +65,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Engeselt/Documents/GitHub/ASPO"
+    "last_opened_file_path": "C:/Users/Engeselt/Documents/GitHub/ASPO/pages"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Engeselt\Documents\GitHub\ASPO\pages" />
       <recent name="C:\Users\Engeselt\Documents\GitHub\ASPO" />
     </key>
   </component>
@@ -237,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698364111150</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Medição Agrupada Atualizada 27/10">
+      <option name="closed" value="true" />
+      <created>1698409606506</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698409606506</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +267,7 @@
     <MESSAGE value="Medição Agrupada Atualizada 01/10/2023" />
     <MESSAGE value="Medição Agrupada Atualizada 12/10/2023" />
     <MESSAGE value="Medição Agrupada Atualizada 21/10" />
-    <option name="LAST_COMMIT_MESSAGE" value="Medição Agrupada Atualizada 21/10" />
+    <MESSAGE value="Medição Agrupada Atualizada 27/10" />
+    <option name="LAST_COMMIT_MESSAGE" value="Medição Agrupada Atualizada 27/10" />
   </component>
 </project>
