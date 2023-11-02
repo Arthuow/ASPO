@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 01/11">
+    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 02/11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/3_DIAGNÓSTICO.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/3_DIAGNÓSTICO.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698926361418</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Medição Agrupada Atualizada 02/11">
+      <option name="closed" value="true" />
+      <created>1698928548278</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698928548278</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,6 +246,7 @@
     <MESSAGE value="Medição Agrupada Atualizada 12/10/2023" />
     <MESSAGE value="Medição Agrupada Atualizada 21/10" />
     <MESSAGE value="Medição Agrupada Atualizada 01/11" />
-    <option name="LAST_COMMIT_MESSAGE" value="Medição Agrupada Atualizada 01/11" />
+    <MESSAGE value="Medição Agrupada Atualizada 02/11" />
+    <option name="LAST_COMMIT_MESSAGE" value="Medição Agrupada Atualizada 02/11" />
   </component>
 </project>
