@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 21/10">
+    <list default="true" id="258d419b-9ac0-4536-95f7-5815a6ab9d9b" name="Changes" comment="Medição Agrupada Atualizada 01/11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="nome_da_branch" />
+        <entry key="$PROJECT_DIR$" value="Energisa" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,7 +53,7 @@
       <recent name="C:\Users\Engeselt\Documents\GitHub\ASPO" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.DEMANDA">
+  <component name="RunManager">
     <configuration name="DEMANDA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ASPO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -99,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.FICHA DE PROJETO" />
         <item itemvalue="Python.DEMANDA" />
+        <item itemvalue="Python.FICHA DE PROJETO" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698363355648</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Medição Agrupada Atualizada 01/11">
+      <option name="closed" value="true" />
+      <created>1698926361418</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1698926361418</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +236,7 @@
     <MESSAGE value="Medição Agrupada Atualizada 01/10/2023" />
     <MESSAGE value="Medição Agrupada Atualizada 12/10/2023" />
     <MESSAGE value="Medição Agrupada Atualizada 21/10" />
-    <option name="LAST_COMMIT_MESSAGE" value="Medição Agrupada Atualizada 21/10" />
+    <MESSAGE value="Medição Agrupada Atualizada 01/11" />
+    <option name="LAST_COMMIT_MESSAGE" value="Medição Agrupada Atualizada 01/11" />
   </component>
 </project>
