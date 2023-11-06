@@ -87,10 +87,10 @@ descricao_saida_Q = df_atributos.loc[indice_saida_Q, 'descricao']
 descricao_saida_Q=str(descricao_saida_Q)
 
 base=importa_base()
-#base.index = pd.to_datetime(base.index)
-base.index = pd.to_datetime(base.index, format='%d/%m/%Y %H:%M', errors='coerce')
-data_d_minus_1 = datetime.today() - timedelta(days=1)
-base = base[base.index < data_d_minus_1]
+base.index = pd.to_datetime(base.index)
+#base.index = pd.to_datetime(base.index, format='%d/%m/%Y %H:%M', errors='coerce')
+#data_d_minus_1 = datetime.today() - timedelta(days=1)
+#base = base[base.index < data_d_minus_1]
 
 base = pd.DataFrame(base,columns=[descricao,descricao_saida,descricao_Q,descricao_saida_Q])
 base[descricao] = base[descricao].astype(float)
