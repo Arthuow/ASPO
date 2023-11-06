@@ -12,8 +12,8 @@ import numpy as np
 print("Importando Base de Dados Agrupada\n")
 url_base = r"C:\Users\Engeselt\Documents\GitHub\ASPO\Medição Agrupada.csv"
 df_base = pd.read_csv(url_base, sep=";", encoding='latin-1')
-#df_base['DATA_HORA'] = pd.to_datetime(df_base['DATA_HORA'])
-df_base['DATA_HORA'] = pd.to_datetime(df_base['DATA_HORA'], format="%d/%m/%Y %H:%M")
+df_base['DATA_HORA'] = pd.to_datetime(df_base['DATA_HORA'])
+#df_base['DATA_HORA'] = pd.to_datetime(df_base['DATA_HORA'], format="%d/%m/%Y %H:%M")
 
 df_base = df_base.set_index(['DATA_HORA'])
 
