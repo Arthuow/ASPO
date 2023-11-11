@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.express as px
 import datetime
 st.set_page_config(page_title="Energisa Mato Grosso",page_icon='icone',layout='wide')
-df_maxima = pd.read_excel(r"C:\Users\Engeselt\Documents\GitHub\ASPO\Valores_maximos_P_meses.xlsx", sheet_name="Potência Ativa Máxima")
+df_maxima = pd.read_excel("Valores_maximos_P_meses.xlsx", sheet_name="Potência Ativa Máxima")
 
 df_maxima_2 = pd.read_excel(r"C:\Users\Engeselt\Documents\GitHub\ASPO\Valores_maximos_P_meses.xlsx", sheet_name="Potência Ativa Máxima")
 st.header('Diagnóstico do Sistema Elétrico 2023')
