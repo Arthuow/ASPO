@@ -41,7 +41,7 @@ print(df_dados_tecnicos)
 ########################################################################################################################
 
 # Definir lista de dias
-dias = range(1,16)
+dias = range(1,22)
 meses = [11,11]
 anos = range(2023, 2024)
 # Gera as colunas para os dias, meses e anos
@@ -62,7 +62,7 @@ for ano in range (2023,2024):
     for mes in range (11,12):
          if mes in df_filtrado_ano['MES'].values:
             df_filtrado_mes = df_filtrado_ano[df_filtrado_ano["MES"]==mes]
-            for dia in range(1,17):
+            for dia in range(1,22):
                 if dia in df_filtrado_mes["DIA"].values:
                     df_filtrado_dia = df_filtrado_mes[df_filtrado_mes["DIA"]==dia]
                     print(df_filtrado_dia)

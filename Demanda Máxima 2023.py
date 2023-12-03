@@ -41,7 +41,7 @@ df_atributos.dropna(subset=['Cód. do Trafo/Alimentador'], inplace=True)
 print(df_atributos)
 df_dados_tecnicos=df_atributos
 mes=1
-anos = range(2023,2023)
+anos = range(2021,2023)
 meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
 colunas_meses_anos = [f'{mes} {ano}' for ano in anos for mes in meses]
 df_meses_anos = pd.DataFrame(index=df_dados_tecnicos.index,columns=colunas_meses_anos)
@@ -51,7 +51,7 @@ print(df_dados_com_meses_anos)
 
 df_valores_maximo_P = pd.DataFrame(columns = ['Cód. do Trafo/Alimentador'] + colunas_meses_anos)
 valores_maximos_P_meses = []
-for ano in range (2023,2024):
+for ano in range (2021,2024):
     df_filtrado_ano = df_base[df_base["ANO"]==ano]
     for mes in range (1,13):
          if mes in df_filtrado_ano['MES'].values:
@@ -152,8 +152,8 @@ for ano in range (2023,2024):
                 ########################################################################################################
 
                 ################################# CALCULO DO DESVIO PADRÃO #############################################
-                minimo_desvio = round(valor_media_p - 3 * desvio_padrao_P, 0)
-                maximo_desvio = round((valor_media_p + 3 * desvio_padrao_P), 0)
+                minimo_desvio = round(valor_media_p - 3.5 * desvio_padrao_P, 0)
+                maximo_desvio = round((valor_media_p + 3.5 * desvio_padrao_P), 0)
                 print("Valor minimo por desvio padrão:", minimo_desvio)
                 print("Valor maximo por desvio padrão:", maximo_desvio)
                 ########################################################################################################
@@ -165,7 +165,7 @@ for ano in range (2023,2024):
                 ########################################################################################################
 
                 ###########################  Potencia máxima considerada ###############################################
-                base_filtrada = np.where(df_base_filtrado['P'] < valor_media_p + 3.0 * desvio_padrao_P, df_base_filtrado['P'], np.nan)
+                base_filtrada = np.where(df_base_filtrado['P'] < valor_media_p + 3.5 * desvio_padrao_P, df_base_filtrado['P'], np.nan)
                 valor_maximo_filtrado = np.nanmax(base_filtrada)
 
                 if valor_maximo_P / valor_maximo_filtrado > 1.10:
@@ -177,18 +177,16 @@ for ano in range (2023,2024):
 
                 ########################################################################################################
 
-
                 if valor_maximo_P is not None:  # Verifica se um valor válido foi calculado
                     linha = df_atributos[df_atributos['Cód. do Trafo/Alimentador'] == selecao].index[0]
                     coluna_mes_ano = f'{meses[mes - 1]} {ano}'
-                    df_dados_com_meses_anos.loc[linha, coluna_mes_ano] = valor_maximo_P
-
+                    df_dados_com_meses_anos.loc[linha, coluna_mes_ano] = valor_maximo_S
 
                 ####potencia mínima considerada ####
-                if valor_minimo_P < minimo_desvio:
-                    valor_minimo_P = minimo_desvio
+                if valor_minimo_P_sem_zero < minimo_desvio:
+                    valor_minimo_P_sem_zero = minimo_desvio
                 else:
-                    valor_minimo_P
+                    valor_minimo_P_sem_zero
 
                 if selecao not in df_dados_tecnicos['Cód. do Trafo/Alimentador'].values:
                     print(f'O valor {selecao} não está presente em df_dados_tecnicos. Pulando para a próxima iteração.')
@@ -211,8 +209,9 @@ if not os.path.exists(export_dir):
 # Converta a coluna 'Potencia Instalada' para valores numéricos
 df_dados_com_meses_anos['Potencia Instalada'] = pd.to_numeric(df_dados_com_meses_anos['Potencia Instalada'], errors='coerce')
 excluir_colunas= ['Descrição', 'Cód. de Ident', 'Cód. do Trafo/Alimentador', 'Potencia Instalada','Tensão Prim','Tensão Sec. (kV)']
-
-df_dados_com_meses_anos['Pot. Máxima'] = df_dados_com_meses_anos.drop(excluir_colunas, axis=1).max(axis=1).round(2)
+max_potencia = df_dados_com_meses_anos.drop(excluir_colunas, axis=1).max(axis=1)
+df_dados_com_meses_anos['Pot. Máxima'] = max_potencia.fillna(0).round(2)
+#df_dados_com_meses_anos['Pot. Máxima'] = df_dados_com_meses_anos.drop(excluir_colunas, axis=1).max(axis=1).round(2)
 # Divide o máximo de cada linha pela coluna 'Potencia Instalada' se for maior que zero
 
 #COLUNAS NÃO NUMERICAS

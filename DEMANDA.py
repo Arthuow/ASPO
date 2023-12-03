@@ -15,7 +15,7 @@ import gc
 from datetime import datetime, timedelta
 import streamlit.components.v1 as components
 
-df_maxima = pd.read_excel("Valores_maximos_P_meses_2022.xlsx", sheet_name="Potência Ativa Máxima")
+df_maxima = pd.read_excel("Valores_maximos_P_meses.xlsx", sheet_name="Potência Ativa Máxima")
 print(df_maxima)
 
 @st.cache_data
@@ -47,7 +47,6 @@ df_dados_tecnicos = pd.read_excel('Tabela informativa.xlsx',sheet_name='Dados T�
 print("\n Tabela para realizar o procv importada")
 print(df_dados_tecnicos)
 
-import streamlit as st
 
 importar_base_equipamentos()
 st.set_page_config(page_title="Energisa Mato Grosso",page_icon='icone',layout='wide')
@@ -59,8 +58,9 @@ EAE = selecao + '-EAE'
 EAR = selecao + '-EAR'
 ERE = selecao + '-ERE'
 ERR = selecao + '-ERR'
-
 potencia_instalada =df_dados_tecnicos.loc[df_dados_tecnicos['Cód. do Trafo/Alimentador']==selecao,'Potencia Instalada'].values[0]
+ano_nomes = [2023,2022,2021,"Todos"]
+ano = st.sidebar.radio("Selecione o ano:", ano_nomes)
 print('Potencia Instalada:',potencia_instalada)
 
 ###Potencia Ativa#####
@@ -88,11 +88,16 @@ descricao_saida_Q=str(descricao_saida_Q)
 
 base=importa_base()
 base.index = pd.to_datetime(base.index)
-base.index = pd.to_datetime(base.index, format='%d/%m/%Y %H:%M', errors='coerce')
-data_d_minus_1 = datetime.today() - timedelta(days=1)
-base = base[base.index < data_d_minus_1]
+if ano_nomes == "Todos":
+    base_filtrada = base
+    base = pd.DataFrame(base, columns=[descricao, descricao_saida, descricao_Q, descricao_saida_Q])
+else:
+    base_filtrada = base[base.index.year==ano]
+    base = pd.DataFrame(base_filtrada, columns=[descricao, descricao_saida, descricao_Q, descricao_saida_Q])
 
-base = pd.DataFrame(base,columns=[descricao,descricao_saida,descricao_Q,descricao_saida_Q])
+data_d_minus_1 = datetime.today() - timedelta(days=1)
+base_filtrada = base_filtrada[base_filtrada.index < data_d_minus_1]
+#base= pd.DataFrame(base_filtrada,columns=[descricao,descricao_saida,descricao_Q,descricao_saida_Q])
 base[descricao] = base[descricao].astype(float)
 base[descricao_saida] = base[descricao_saida].astype(float)
 base[descricao_Q] = base[descricao_Q].astype(float)
@@ -103,7 +108,7 @@ base['S'] = np.sqrt((base['P']**2)+(base['PQ']**2))
 base['fp'] = base['P']/base['S']
 base['ultrapassagem'] = base['S']/potencia_instalada >= 1.00
 base['ultrapassagem'] = base['ultrapassagem'].astype(int)
-print(base)
+
 valor_maximo_P = max(base['P'])
 valor_maximo_S = max(base['S'])
 valor_maximo_S = round(float(valor_maximo_S),2)
@@ -126,7 +131,7 @@ fp = round(valor_media_p/(np.mean(base['S'])),2)
 #print(base)
 
 #######  Potencia máxima considerada ##################
-dados_filtrados_desvio = np.where(base['P'] < valor_media_p + 3 * desvio_padrao_P, base['P'], np.nan)
+dados_filtrados_desvio = np.where(base['P'] < valor_media_p + 3.5 * desvio_padrao_P, base['P'], np.nan)
 valor_maximo_filtrado = np.nanmax(dados_filtrados_desvio)
 print('Valor Máximo Filtrado:', valor_maximo_filtrado)
 print('Valor máximo',valor_maximo_P)
@@ -147,10 +152,10 @@ print("Carregamento (%):",carregamento_percentual)
 ############################### CONTAGEM DE HORAS ACIMA DA POTENCIA NOMINAL #########################################
 #####Potencia mínima considerada ####
 
-if valor_minimo_P < minimo_desvio:
-    valor_minimo_P = minimo_desvio
+if valor_minimo_P_sem_zero < minimo_desvio:
+    valor_minimo_P_sem_zero = minimo_desvio
 else:
-    valor_minimo_P
+    valor_minimo_P_sem_zero
 
 ################################## PLOTAGEM DOS GRÀFICOS #######################################################
 
@@ -168,9 +173,10 @@ gc.collect()
 col1,col2,col3,col4, col5 = st.columns(5)
 col1.metric('Valor Máximo da P. Ativa:',valor_maximo_P)
 col2.metric('Carregamento:',carregamento_percentual,round(potencia_instalada,0))
-col3.metric('Valor Mínimo da P. Ativa:',valor_minimo_P)
+col3.metric('Valor Mínimo da P. Ativa:',valor_minimo_P_sem_zero)
 col4.metric('Fator de Potência:',fp)
 col5.metric('Qtd de horas ultrapassagem',sum(base['ultrapassagem']))
+
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=base.index, y=base['P'], name='Potencia Ativa - kW', line=dict(color='Navy')))
 fig.add_trace(go.Scatter(x=base.index, y=base['PQ'], name='Potencia Reativa - kVAr', line=dict(color='Tomato')))
@@ -179,7 +185,7 @@ fig.update_layout(title="Gráfico Anual: " + Equipamento,xaxis_title="Data",yaxi
                   fillcolor="lightpink",opacity=0.4,layer="below",line_width=0)])
 fig.add_annotation(text="Inversão de Fluxo",xref="paper",yref="paper",x=0,y=-0.02,font=dict(color="black"),showarrow=False)
 fig.add_shape(type="line",x0=base.index[0], y0=potencia_instalada,x1=base.index[-1], y1=potencia_instalada, line=dict(color="red", width=3.0))
-fig.add_shape(type="line",x0=base.index[0], y0=valor_minimo_P,x1=base.index[-1], y1=valor_minimo_P, line=dict(color="red", width=1.7, dash="dash"))
+fig.add_shape(type="line",x0=base.index[0], y0=valor_minimo_P_sem_zero,x1=base.index[-1], y1=valor_minimo_P_sem_zero, line=dict(color="red", width=1.7, dash="dash"))
 fig.add_shape(type="line",x0=base.index[0], y0=valor_maximo_P,x1=base.index[-1], y1=valor_maximo_P, line=dict(color="black", width=1.5, dash="dash"))
 st.plotly_chart(fig)
 
@@ -188,17 +194,19 @@ st.plotly_chart(fig)
 #########################################3 DEMANDA MÁXIMAS DE 2022 #####################################################
 st.divider()
 
-#df_maxima_2 = pd.read_excel("Valores_maximos_P_meses.xlsx", sheet_name="Potência Ativa Máxima")
-#st.header('Demandas Máximas de 2022')
 if "TR" in selecao:
     selecao_2 = selecao
 else:
-    selecao_2 = 'AL-'+selecao
+    selecao_2 = 'AL-' + selecao
 
-st.subheader('Gráfico da Máxima Demanda de 2022')
+st.subheader(f'Gráfico da Máxima Demanda (kVA)')
+
 # Seleção do trafo/alimentador
 filtered_data = df_maxima[df_maxima['Cód. do Trafo/Alimentador'] == selecao_2]
-mes_atual = datetime.now()
+
+if filtered_data.empty:
+    st.warning(f"Nenhum dado encontrado para o trafo/alimentador {selecao_2}. Verifique se os dados estão disponíveis.")
+
 mes_columns = [col for col in filtered_data.columns if col.split()[0] in ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']]
 
 # Converter as colunas de meses para números (float)
@@ -209,9 +217,9 @@ for col in mes_columns:
 filtered_data_melted = filtered_data.melt(id_vars=['Descrição', 'Cód. do Trafo/Alimentador'], value_vars=mes_columns, var_name='Mês', value_name='Valor')
 
 # Criar o gráfico de barras usando Plotly Express
-fig3 = px.bar(filtered_data_melted, x='Mês', y='Valor', color='Cód. do Trafo/Alimentador', text='Valor', title=f'Gráfico de Barras para {selecao}')
+fig3 = px.bar(filtered_data_melted, x='Mês', y='Valor', color='Cód. do Trafo/Alimentador', text='Valor', title=f'Gráfico de Barras para {selecao}', barmode='group')
 
-fig3.update_layout(xaxis_title="Meses",yaxis_title="Carregamento (%)",width=1500, height=680)
+fig3.update_layout(xaxis_title="Meses", yaxis_title="Carregamento (%)", width=1500, height=680)
 # Mostrar o gráfico usando Streamlit
 st.plotly_chart(fig3)
 
@@ -224,7 +232,7 @@ colu1,colu2 = st.columns(2)
 with colu1:
     mes_selecionado =st.selectbox('Selecione o mês:',[1,2,3,4,5,6,7,8,9,10,11,12])
 with colu2:
-    ano_selecionado = st.selectbox('Selecione o ano:',[2023])
+    ano_selecionado = st.selectbox('Selecione o ano:',[2022,2023])
 
 fig2 = go.Figure()
 base['DATA_HORA_converted'] = pd.to_datetime(base.index, errors='coerce')
