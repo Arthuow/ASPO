@@ -64,7 +64,8 @@ def importa_base():
         # Verifica se o arquivo existe, se não, baixa do Google Drive
         if not db_path.exists():
             st.info("Baixando base de dados do Google Drive. Aguarde...")
-            url = "https://drive.google.com/file/d/1jXdKM46ZRYlQbK1LB-xa8Ft-lbJM4BG-/view?usp=drive_link"
+            url = "https://drive.google.com/file/d/1jXdKM46ZRYlQbK1LB-xa8Ft-lbJM4BG-/view?usp=sharing"
+
 
             gdown.download(url, str(db_path), quiet=False)
             logger.info("Arquivo medicoes.duckdb baixado do Google Drive.")
