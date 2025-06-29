@@ -72,9 +72,6 @@ def importa_base():
         conn = duckdb.connect(str(db_path), read_only=True)
         # Ajustes de performance para evitar erro de memória
         conn.execute("SET memory_limit='1GB'")
-        conn.execute("SET threads=2")
-        conn.execute("SET preserve_insertion_order=false")
-
         # Otimizar a query usando DuckDB
         query = """
         WITH filtered_data AS (
