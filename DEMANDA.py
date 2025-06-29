@@ -10,6 +10,7 @@ import plotly.graph_objects as go
 import io
 import logging
 import duckdb
+import gdown
 from pathlib import Path
 
 # Definir logger global
@@ -60,9 +61,14 @@ def importa_base():
     try:
         base_path = Path(__file__).resolve().parent
         db_path = base_path / "Base/medicoes.duckdb"
-
+        # Verifica se o arquivo existe, se não, baixa do Google Drive
+        if not db_path.exists():
+            st.info("Baixando base de dados do Google Drive. Aguarde...")
+            url = "https://drive.google.com/uc?id=1jXdKM46ZRYlQbK1LB-xa8Ft-lbJM4BG-"
+            gdown.download(url, str(db_path), quiet=False)
+            logger.info("Arquivo medicoes.duckdb baixado do Google Drive.")
         # Conectar ao DuckDB com configurações otimizadas
-        conn = duckdb.connect(db_path, read_only=True)
+        conn = duckdb.connect(str(db_path), read_only=True)
 
         # Otimizar a query usando DuckDB
         query = """
