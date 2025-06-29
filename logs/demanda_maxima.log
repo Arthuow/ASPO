@@ -1,0 +1,235 @@
+2025-05-25 16:45:48,194 - INFO - Base de dados importada com sucesso
+2025-05-25 16:45:48,448 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 16:45:48,847 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 16:45:48,956 - INFO - Base de dados filtrada para o ano 2025 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 16:45:49,407 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 16:45:49,584 - INFO - Dados técnicos importados com sucesso
+2025-05-25 16:45:49,584 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 16:45:49,584 - WARNING - Tabela 'demanda_maxima_mensal' não encontrada no banco de dados
+2025-05-25 16:45:49,584 - INFO - Conexão com o banco de dados fechada
+2025-05-25 16:45:49,595 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 16:45:49,598 - INFO - Calculando para o ano 2024
+2025-05-25 16:45:49,631 - INFO - Calculando para o ano 2025
+2025-05-25 16:47:21,366 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 16:47:21,366 - INFO - Tabela demanda_maxima_mensal criada/verificada com sucesso
+2025-05-25 16:47:21,366 - ERROR - Erro ao atualizar a base de dados: no such column: Janeiro 2025
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 555, in <module>
+    cursor.execute(f"""
+sqlite3.OperationalError: no such column: Janeiro 2025
+2025-05-25 16:47:21,366 - INFO - Conexão com o banco de dados fechada
+2025-05-25 17:34:31,223 - INFO - Base de dados importada com sucesso
+2025-05-25 17:34:31,569 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 17:34:32,033 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 17:34:32,223 - INFO - Base de dados filtrada para o ano 2024 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 17:34:32,760 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 17:34:32,950 - INFO - Dados técnicos importados com sucesso
+2025-05-25 17:34:32,957 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 17:34:32,958 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 17:34:32,960 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Descrição', 'Cód. de Ident', 'Cód. do Trafo/Alimentador', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2023', 'Fevereiro 2023', 'Março 2023', 'Abril 2023', 'Maio 2023', 'Junho 2023', 'Julho 2023', 'Agosto 2023', 'Setembro 2023', 'Outubro 2023', 'Novembro 2023', 'Dezembro 2023', 'Pot. Aparente', 'Carregamento', 'Tipo']
+2025-05-25 17:34:32,960 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 181, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 17:34:32,961 - INFO - Conexão com o banco de dados fechada
+2025-05-25 17:34:32,962 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 17:34:33,044 - INFO - Calculando para o ano 2024
+2025-05-25 17:38:13,186 - INFO - Calculando para o ano 2025
+2025-05-25 17:38:16,796 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 17:38:16,796 - INFO - Tabela demanda_maxima_mensal criada/verificada com sucesso
+2025-05-25 17:38:16,796 - ERROR - Erro ao atualizar a base de dados: no such column: Janeiro 2024
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 555, in <module>
+    cursor.execute(f"""
+sqlite3.OperationalError: no such column: Janeiro 2024
+2025-05-25 17:38:16,796 - INFO - Conexão com o banco de dados fechada
+2025-05-25 17:52:26,065 - INFO - Base de dados importada com sucesso
+2025-05-25 17:52:26,389 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 17:52:26,915 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 17:52:27,105 - INFO - Base de dados filtrada para o ano 2024 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 17:52:27,613 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 17:52:27,783 - INFO - Dados técnicos importados com sucesso
+2025-05-25 17:52:27,787 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 17:52:27,787 - WARNING - Tabela 'demanda_maxima_mensal' não encontrada no banco de dados
+2025-05-25 17:52:27,788 - INFO - Conexão com o banco de dados fechada
+2025-05-25 17:52:27,788 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 17:52:27,865 - INFO - Calculando para o ano 2024
+2025-05-25 17:56:05,060 - INFO - Calculando para o ano 2025
+2025-05-25 17:56:08,629 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 17:56:08,636 - INFO - Tabela demanda_maxima_mensal criada/verificada com sucesso
+2025-05-25 17:56:08,700 - INFO - Coluna Janeiro 2024 atualizada com sucesso
+2025-05-25 17:56:08,759 - INFO - Coluna Fevereiro 2024 atualizada com sucesso
+2025-05-25 17:56:08,817 - INFO - Coluna Março 2024 atualizada com sucesso
+2025-05-25 17:56:08,873 - INFO - Coluna Abril 2024 atualizada com sucesso
+2025-05-25 17:56:08,930 - INFO - Coluna Maio 2024 atualizada com sucesso
+2025-05-25 17:56:08,987 - INFO - Coluna Junho 2024 atualizada com sucesso
+2025-05-25 17:56:09,038 - INFO - Coluna Julho 2024 atualizada com sucesso
+2025-05-25 17:56:09,102 - INFO - Coluna Agosto 2024 atualizada com sucesso
+2025-05-25 17:56:09,158 - INFO - Coluna Setembro 2024 atualizada com sucesso
+2025-05-25 17:56:09,213 - INFO - Coluna Outubro 2024 atualizada com sucesso
+2025-05-25 17:56:09,271 - INFO - Coluna Novembro 2024 atualizada com sucesso
+2025-05-25 17:56:09,332 - INFO - Coluna Dezembro 2024 atualizada com sucesso
+2025-05-25 17:56:09,333 - INFO - Alterações salvas no banco de dados
+2025-05-25 17:56:09,333 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:02:05,104 - INFO - Base de dados importada com sucesso
+2025-05-25 18:02:05,407 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:02:05,911 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:02:06,104 - INFO - Base de dados filtrada para o ano 2024 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:02:07,316 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:02:07,496 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:02:07,496 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:02:07,496 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:02:07,545 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Cód. do Trafo/Alimentador', 'Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento']
+2025-05-25 18:02:07,549 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 181, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:02:07,550 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:02:07,551 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:02:07,633 - INFO - Calculando para o ano 2024
+2025-05-25 18:05:52,082 - INFO - Calculando para o ano 2025
+2025-05-25 18:05:55,884 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:05:55,885 - INFO - Tabela demanda_maxima_mensal criada/verificada com sucesso
+2025-05-25 18:05:55,889 - ERROR - Erro ao atualizar a base de dados: table demanda_maxima_mensal has no column named Tipo
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 552, in <module>
+    cursor.execute(query, values)
+sqlite3.OperationalError: table demanda_maxima_mensal has no column named Tipo
+2025-05-25 18:05:55,893 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:14:44,047 - INFO - Base de dados importada com sucesso
+2025-05-25 18:14:44,345 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:14:44,801 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:14:44,987 - INFO - Base de dados filtrada para o ano 2024 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:14:45,455 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:14:45,624 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:14:45,627 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:14:45,628 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:14:45,628 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Cód. do Trafo/Alimentador', 'Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento']
+2025-05-25 18:14:45,628 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 181, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:14:45,629 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:14:45,630 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:14:45,698 - INFO - Calculando para o ano 2024
+2025-05-25 18:18:07,555 - INFO - Calculando para o ano 2025
+2025-05-25 18:18:11,226 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:18:11,238 - INFO - Coluna Tipo adicionada à tabela
+2025-05-25 18:18:11,372 - INFO - Dados atualizados com sucesso
+2025-05-25 18:18:11,373 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:22:49,529 - INFO - Base de dados importada com sucesso
+2025-05-25 18:22:49,834 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:22:50,273 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:22:50,389 - INFO - Base de dados filtrada para o ano 2025 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:22:50,821 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:22:51,002 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:22:51,006 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:22:51,006 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:22:51,007 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Cód. do Trafo/Alimentador', 'Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento', 'Tipo']
+2025-05-25 18:22:51,007 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 181, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:22:51,009 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:22:51,009 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:22:51,010 - INFO - Calculando para o ano 2024
+2025-05-25 18:22:51,041 - INFO - Calculando para o ano 2025
+2025-05-25 18:24:30,294 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:24:30,531 - INFO - Dados atualizados com sucesso
+2025-05-25 18:24:30,532 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:27:42,854 - INFO - Base de dados importada com sucesso
+2025-05-25 18:27:43,118 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:27:43,508 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:27:43,674 - INFO - Base de dados filtrada para o ano 2024 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:27:44,124 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:27:44,301 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:27:44,304 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:27:44,304 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:27:44,304 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Cód. do Trafo/Alimentador', 'Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento', 'Tipo']
+2025-05-25 18:27:44,304 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 181, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:27:44,309 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:27:44,309 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:27:44,374 - INFO - Calculando para o ano 2024
+2025-05-25 18:31:32,334 - INFO - Calculando para o ano 2025
+2025-05-25 18:31:36,114 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:31:36,405 - INFO - Dados atualizados com sucesso
+2025-05-25 18:31:36,405 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:43:30,887 - INFO - Base de dados importada com sucesso
+2025-05-25 18:43:31,198 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:43:31,648 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:43:31,783 - INFO - Base de dados filtrada para o ano 2025 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:43:32,323 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:43:32,491 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:43:32,494 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:43:32,495 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:43:32,499 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Cód. do Trafo/Alimentador', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento', 'Tipo']
+2025-05-25 18:43:32,499 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 181, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:43:32,500 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:43:32,501 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:43:32,503 - INFO - Calculando para o ano 2024
+2025-05-25 18:43:32,531 - INFO - Calculando para o ano 2025
+2025-05-25 18:45:01,432 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:45:01,760 - INFO - Dados atualizados com sucesso
+2025-05-25 18:45:01,760 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:48:13,886 - INFO - Base de dados importada com sucesso
+2025-05-25 18:48:14,186 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:48:14,666 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:48:14,809 - INFO - Base de dados filtrada para o ano 2025 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:48:15,216 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:48:15,427 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:48:15,427 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:48:15,427 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:48:15,427 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Cód. do Trafo/Alimentador', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento', 'Tipo']
+2025-05-25 18:48:15,427 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 182, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:48:15,427 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:48:15,427 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:48:15,436 - INFO - Calculando para o ano 2024
+2025-05-25 18:48:15,466 - INFO - Calculando para o ano 2025
+2025-05-25 18:49:48,098 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:49:48,396 - INFO - Dados atualizados com sucesso
+2025-05-25 18:49:48,398 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:52:21,546 - INFO - Base de dados importada com sucesso
+2025-05-25 18:52:21,901 - INFO - Linhas com datas inválidas removidas. Total de linhas: 21000
+2025-05-25 18:52:22,448 - INFO - Colunas MES e ANO adicionadas ao DataFrame base
+2025-05-25 18:52:22,582 - INFO - Base de dados filtrada para o ano 2025 e mês(es) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+2025-05-25 18:52:23,071 - INFO - Dados da tabela informativa importados com sucesso
+2025-05-25 18:52:23,298 - INFO - Dados técnicos importados com sucesso
+2025-05-25 18:52:23,301 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:52:23,301 - INFO - Tabela 'demanda_maxima_mensal' encontrada no banco de dados
+2025-05-25 18:52:23,301 - INFO - Colunas existentes na tabela 'demanda_maxima_mensal': ['Descrição', 'Cód. de Ident', 'Barra ANAREDE', 'Cód. do Trafo/Alimentador', 'Tensão Prim', 'Tensão Sec. (kV)', 'Potencia Instalada', 'Janeiro 2024', 'Fevereiro 2024', 'Março 2024', 'Abril 2024', 'Maio 2024', 'Junho 2024', 'Julho 2024', 'Agosto 2024', 'Setembro 2024', 'Outubro 2024', 'Novembro 2024', 'Dezembro 2024', 'Janeiro 2025', 'Fevereiro 2025', 'Março 2025', 'Abril 2025', 'Maio 2025', 'Junho 2025', 'Julho 2025', 'Agosto 2025', 'Setembro 2025', 'Outubro 2025', 'Novembro 2025', 'Dezembro 2025', 'Pot. Aparente', 'Carregamento', 'Tipo']
+2025-05-25 18:52:23,304 - ERROR - Erro ao consultar o banco de dados: name 'coluna_mes_atual' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Engeselt\Documents\GitHub\streamlit_demanda\Demanda Máxima.py", line 182, in consultar_base_demanda_maxima_mensal
+    return colunas_existentes, coluna_mes_atual
+                               ^^^^^^^^^^^^^^^^
+NameError: name 'coluna_mes_atual' is not defined
+2025-05-25 18:52:23,306 - INFO - Conexão com o banco de dados fechada
+2025-05-25 18:52:23,306 - WARNING - Não foi possível obter informações da tabela
+2025-05-25 18:52:23,309 - INFO - Calculando para o ano 2024
+2025-05-25 18:52:23,342 - INFO - Calculando para o ano 2025
+2025-05-25 18:54:29,361 - INFO - Conexão com o banco de dados estabelecida
+2025-05-25 18:54:29,894 - INFO - Dados atualizados com sucesso
+2025-05-25 18:54:29,894 - INFO - Conexão com o banco de dados fechada
