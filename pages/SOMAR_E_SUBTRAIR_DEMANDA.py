@@ -2,20 +2,19 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
-from datetime import datetime, timedelta
-import os
 import sys
 from pathlib import Path
+from DEMANDA import importa_base
+
 
 # Get the current directory
 current_dir = Path(__file__).parent
 sys.path.append(str(current_dir.parent))
-from DEMANDA import importa_base
 
 # Configuração da página do Streamlit
 st.set_page_config(page_title="Agregador de Demandas", page_icon='icone', layout='wide')
 st.header('Energisa Mato Grosso - ASPO')
-st.subheader("Agregador de Demandas")
+st.subheader("Somar e Subtrair Demandas Coincidentes")
 #st.divider()
 
 base = importa_base()

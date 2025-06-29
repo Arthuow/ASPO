@@ -1,3 +1,0 @@
-Alimentador "Imax (A)" "P3F (kW)" "Q3F (kVAr)" "Cálculo de Demanda" Patamar "Corrigir a Curva" "Curvas de Demanda BT" "Tipo de Correção" "Valores Medidos" "Valores por Fase"
-158TR01 0 26402.0 4586.0 "Com correção de EPs e ETs" 2 1 1 1 0 0
-158001 0 0.0 0.0 "Com correção de EPs e ETs" 2 1 1 1 0 0

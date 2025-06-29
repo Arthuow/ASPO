@@ -1,48 +1,59 @@
 #Projeto Energisa de Leitura de dados de Demanda
+import math
+import time
+import datetime
 import os
 import warnings
 import pandas as pd
+import openpyxl
 warnings.filterwarnings("ignore")
 import streamlit as st
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import gc
+from datetime import datetime, timedelta
 import io
 import logging
-import duckdb
+import sqlite3
 from pathlib import Path
-
-# Definir logger global
-logger = logging.getLogger(__name__)
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[logging.StreamHandler()]
-)
 
 # Configurar diretório de logs
 try:
     log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'exportado')
     os.makedirs(log_dir, exist_ok=True)
     log_file = os.path.join(log_dir, 'demanda.log')
+    
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler()
+        ]
+    )
+    
     try:
         file_handler = logging.FileHandler(log_file)
         file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
         logging.getLogger().addHandler(file_handler)
     except Exception as e:
         print(f"Warning: Could not set up file logging: {str(e)}")
+    
+    logger = logging.getLogger(__name__)
 except Exception as e:
     print(f"Error setting up logging: {str(e)}")
+    logger = logging.getLogger(__name__)
 
 # Configuração da página Streamlit
 st.set_page_config(page_title="Energisa Mato Grosso", page_icon='icone', layout='wide')
 
 # Cache para dados de demanda máxima
-@st.cache_data()
+@st.cache_data(ttl=3600)  # Cache por 1 hora
 def carregar_dados_demanda_maxima():
     try:
-        df_maxima = pd.read_excel("input/Demanda_Máxima_Não_Coincidente_Historica.xlsx",
-                                sheet_name="Potência Aparente",
+        df_maxima = pd.read_excel("input/Demanda_Máxima_Não_Coincidente_Historica.xlsx", 
+                                sheet_name="Potência Aparente", 
                                 engine="openpyxl")
         logger.info("Dados de demanda máxima carregados com sucesso")
         return df_maxima
@@ -54,63 +65,61 @@ def carregar_dados_demanda_maxima():
 # Carregar dados de demanda máxima
 df_maxima = carregar_dados_demanda_maxima()
 
-@st.cache_data
+@st.cache_data 
 def importa_base():
-    logger.info("Importando Base de Dados do DuckDB")
+    logger.info("Importando Base de Dados do SQLite")
     try:
         base_path = Path(__file__).resolve().parent
-        db_path = base_path / "Base/medicoes.duckdb"
-
-        # Conectar ao DuckDB com configurações otimizadas
-        conn = duckdb.connect(db_path, read_only=True)
-
-        # Otimizar a query usando DuckDB
-        query = """
-        WITH filtered_data AS (
-            SELECT 
-                Data_Hora,
-                ponto_medicao,
-                AVG(valor) as valor
-            FROM DemandaDiaria 
-            WHERE Data_Hora < CURRENT_DATE - INTERVAL '1' DAY
-            GROUP BY Data_Hora, ponto_medicao
-        )
-        SELECT * FROM filtered_data
-        ORDER BY Data_Hora
-        """
-
-        # Ler dados usando DuckDB com otimizações
-        df_base = conn.execute(query).df()
-
-        # Converter Data_Hora para datetime de forma otimizada
-        df_base['Data_Hora'] = pd.to_datetime(df_base['Data_Hora'])
-
-        # Otimizar o pivot usando pivot_table com aggfunc='mean'
-        df_base = df_base.pivot_table(
-            index='Data_Hora',
-            columns='ponto_medicao',
-            values='valor',
-            aggfunc='mean'
-        )
-
-        if df_base.empty:
-            raise ValueError("Nenhum dado encontrado após o processamento")
-
-        logger.info(f"Base de dados importada com sucesso. Shape: {df_base.shape}")
-        return df_base
-
+        db_path = base_path / "Medicoes.db"
+        
+        # Usar with para garantir que a conexão seja fechada
+        with sqlite3.connect(db_path) as conn:
+            # Otimizar a query usando índices e limitando os dados
+            query = """
+            WITH filtered_data AS (
+                SELECT 
+                    Data_Hora,
+                    ponto_medicao,
+                    AVG(valor) as valor
+                FROM DemandaDiaria 
+                
+                GROUP BY Data_Hora, ponto_medicao
+            )
+            SELECT * FROM filtered_data
+            ORDER BY Data_Hora
+            """
+            
+            # Ler dados em chunks para melhor performance
+            chunks = []
+            for chunk in pd.read_sql_query(query, conn, chunksize=100000):
+                chunk['Data_Hora'] = pd.to_datetime(chunk['Data_Hora'])
+                chunks.append(chunk)
+            
+            df_base = pd.concat(chunks)
+            
+            # Otimizar o pivot usando pivot_table com aggfunc='mean'
+            df_base = df_base.pivot_table(
+                index='Data_Hora',
+                columns='ponto_medicao',
+                values='valor',
+                aggfunc='mean'
+            )
+            
+            if df_base.empty:
+                raise ValueError("Nenhum dado encontrado após o processamento")
+            
+            logger.info(f"Base de dados importada com sucesso. Shape: {df_base.shape}")
+            return df_base
+            
     except Exception as e:
         logger.error(f"Erro ao importar base de dados: {str(e)}")
         st.error(f"Erro ao importar base de dados: {str(e)}")
         return None
-    finally:
-        if 'conn' in locals():
-            conn.close()
 
 @st.cache_data(ttl=3600)  # Cache por 1 hora
 def importar_base_equipamentos():
     try:
-        df_equipamentos = pd.read_excel('input/Códigos dos Equipamentos.xlsx',
+        df_equipamentos = pd.read_excel('input/Códigos dos Equipamentos.xlsx', 
                                       sheet_name='Códigos dos Equipamentos')
         df_equipamentos['Descricao'] = df_equipamentos['Descricao'].astype(str)
         logger.info("Importação da base de equipamentos concluída")
@@ -124,10 +133,10 @@ def carregar_dados_tecnicos():
     try:
         df_atributos = pd.read_excel('input/Tabela informativa.xlsx', sheet_name="Dados")
         df_atributos.dropna(subset=['Codigo'], inplace=True)
-
+        
         df_dados_tecnicos = pd.read_excel('input/Tabela informativa.xlsx', sheet_name='Dados Técnicos')
         df_dados_tecnicos['Cód. do Trafo/Alimentador'] = df_dados_tecnicos['Cód. do Trafo/Alimentador'].astype(str)
-
+        
         logger.info("Arquivo Tabela informativa.xlsx lido com sucesso")
         return df_atributos, df_dados_tecnicos
     except Exception as e:
@@ -184,13 +193,13 @@ except Exception as e:
 try:
     indice_entrada = df_atributos.loc[df_atributos['Codigo'] == EAE, 'Codigo'].index[0]
     descricao = str(df_atributos.loc[indice_entrada, 'descricao'])
-
+    
     indice_saida = df_atributos.loc[df_atributos['Codigo'] == EAR, 'Codigo'].index[0]
     descricao_saida = str(df_atributos.loc[indice_saida, 'descricao'])
-
+    
     indice_entrada_Q = df_atributos.loc[df_atributos['Codigo'] == ERE, 'Codigo'].index[0]
     descricao_Q = str(df_atributos.loc[indice_entrada_Q, 'descricao'])
-
+    
     indice_saida_Q = df_atributos.loc[df_atributos['Codigo'] == ERR, 'Codigo'].index[0]
     descricao_saida_Q = str(df_atributos.loc[indice_saida_Q, 'descricao'])
 except Exception as e:
@@ -201,8 +210,12 @@ except Exception as e:
 # Importar e processar base de dados
 base = importa_base()
 if base is None:
-    st.error("Não foi possível carregar a base de dados. Por favor, verifique o banco de dados DuckDB.")
+    st.error("Não foi possível carregar a base de dados. Por favor, verifique o banco de dados SQLite.")
     st.stop()
+
+# Filtrar dados até ontem
+data_d_minus_1 = datetime.today() - timedelta(days=1)
+base = base[base.index < data_d_minus_1]
 
 # Processar dados
 base = pd.DataFrame(base, columns=[descricao, descricao_saida, descricao_Q, descricao_saida_Q])
@@ -452,6 +465,3 @@ st.download_button(
 )
 
 st.text("\nDesenvolvido por Arthur Williams")
-
-if __name__ == "__main__":
-    app = App()
