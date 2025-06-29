@@ -70,8 +70,6 @@ def importa_base():
             logger.info("Arquivo medicoes.duckdb baixado do Google Drive.")
         # Conectar ao DuckDB com configurações otimizadas
         conn = duckdb.connect(str(db_path), read_only=True)
-        # Ajustes de performance para evitar erro de memória
-        conn.execute("SET memory_limit='1GB'")
         # Otimizar a query usando DuckDB
         query = """
         WITH filtered_data AS (
