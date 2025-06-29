@@ -64,10 +64,9 @@ def importa_base():
         # Verifica se o arquivo existe, se não, baixa do Google Drive
         if not db_path.exists():
             st.info("Baixando base de dados do Google Drive. Aguarde...")
-            url = "https://drive.google.com/file/d/1jXdKM46ZRYlQbK1LB-xa8Ft-lbJM4BG-/view?usp=sharing"
-
-
-            gdown.download(url, str(db_path), quiet=False)
+            url = 'https://drive.google.com/uc?export=download&id=1jXdKM46ZRYlQbK1LB-xa8Ft-lbJM4BG-'
+            output = '/mount/src/aspo/Base/medicoes.duckdb'
+            gdown.download(url, output, quiet=False)
             logger.info("Arquivo medicoes.duckdb baixado do Google Drive.")
         # Conectar ao DuckDB com configurações otimizadas
         conn = duckdb.connect(str(db_path), read_only=True)
