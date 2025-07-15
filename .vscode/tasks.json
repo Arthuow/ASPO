@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Executar ASPO (Desenvolvimento)",
+            "type": "shell",
+            "command": "\"${workspaceFolder}/.venv/Scripts/python.exe\"",
+            "args": ["SQLITE_dev.py"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Executar ASPO (Produção)",
+            "type": "shell",
+            "command": "\"${workspaceFolder}/.venv/Scripts/python.exe\"",
+            "args": ["SQLITE.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Instalar Dependências",
+            "type": "shell",
+            "command": "\"${workspaceFolder}/.venv/Scripts/pip.exe\"",
+            "args": ["install", "-r", "requirements.txt"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Verificar Banco SQLite",
+            "type": "shell",
+            "command": "\"${workspaceFolder}/.venv/Scripts/python.exe\"",
+            "args": ["-c", "import sqlite3; conn = sqlite3.connect('Medicoes.db'); cursor = conn.cursor(); cursor.execute('SELECT name FROM sqlite_master WHERE type=\"table\"'); print('Tabelas:', [row[0] for row in cursor.fetchall()]); conn.close()"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            }
+        }
+    ]
+}

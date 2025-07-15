@@ -1,0 +1,18 @@
+# Dependências principais
+pandas>=2.0.0
+numpy>=1.24.0
+openpyxl>=3.1.0
+xlrd>=2.0.0
+
+# Dependências para desenvolvimento (opcional)
+# psutil>=5.9.0  # Para monitoramento de performance - descomente se necessário
+
+# Dependências do sistema (já incluídas no Python)
+# sqlite3 - já incluído no Python padrão
+# tkinter - já incluído no Python padrão
+# pathlib - já incluído no Python padrão
+# zipfile - já incluído no Python padrão
+# re - já incluído no Python padrão
+# os - já incluído no Python padrão
+# datetime - já incluído no Python padrão
+# logging - já incluído no Python padrão
