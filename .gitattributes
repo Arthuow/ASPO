@@ -1,2 +1,14 @@
-DataBase/*.db filter=lfs diff=lfs merge=lfs -text
-Cadastro/*.db filter=lfs diff=lfs merge=lfs -text
+# Atualiza o .gitignore para ignorar os arquivos grandes
+echo "*.pyc
+__pycache__/
+.env
+.venv/
+exportado/
+*.log
+*.zip
+*.txt
+*.db
+*.sqlite
+*.sqlite3
+DataBase/
+Cadastro/"> .gitignore
