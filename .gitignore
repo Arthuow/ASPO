@@ -30,3 +30,4 @@ logs/
 
 # Archive files
 *.zip
+*.db

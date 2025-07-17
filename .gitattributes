@@ -1,6 +1,2 @@
-*.sqlite filter=lfs diff=lfs merge=lfs -text
-*.sqlite3 filter=lfs diff=lfs merge=lfs -text
-DataBase/** filter=lfs diff=lfs merge=lfs -text
-Cadastro/** filter=lfs diff=lfs merge=lfs -text
-DataBase/*.db filter=lfs diff=lfs merge=lfs -text
-Cadastro/*.db filter=lfs diff=lfs merge=lfs -text
+*.sqlite 
+*.sqlite3 
